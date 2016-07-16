@@ -8,16 +8,16 @@
 				<div class="tm-home-box-1">
 					<ul class="nav nav-tabs tm-white-bg" role="tablist" id="hotelCarTabs">
 					    <li role="presentation" class="active">
-					    	<a href="#hotel" aria-controls="hotel" role="tab" data-toggle="tab">Sign up</a>
+					    	<a href="#signUp" aria-controls="hotel" role="tab" data-toggle="tab">Sign up</a>
 					    </li>
 					    <li role="presentation">
-					    	<a href="#car" aria-controls="car" role="tab" data-toggle="tab">Car Rental</a>
+					    	<a href="#addGroup" aria-controls="car" role="tab" data-toggle="tab">Add Group</a>
 					    </li>
 					</ul>
 
 					<!-- Tab panes -->
 					<div class="tab-content">
-					    <div role="tabpanel" class="tab-pane fade in active tm-white-bg" id="hotel">
+					    <div role="tabpanel" class="tab-pane fade in active tm-white-bg" id="signUp">
 					    	<div class="tm-search-box effect2">
 								<form class="hotel-search-form" ng-submit="addMember()">
 									<div class="tm-form-inner">
@@ -40,46 +40,39 @@
 								</form>
 							</div>
 					    </div>
-					    <div role="tabpanel" class="tab-pane fade tm-white-bg" id="car">
+					    <div role="tabpanel" class="tab-pane fade tm-white-bg" id="addGroup">
 							<div class="tm-search-box effect2">
-								<form action="#" method="post" class="hotel-search-form">
+								<form method="post" class="hotel-search-form" ng-submit="addGrpInfo()">
 									<div class="tm-form-inner">
 										<div class="form-group">
-							            	 <select class="form-control">
-							            	 	<option value="">-- Select Model -- </option>
-							            	 	<option value="shangrila">BMW</option>
-												<option value="chatrium">Mercedes-Benz</option>
-												<option value="fourseasons">Toyota</option>
-												<option value="hilton">Honda</option>
+							            	 <select class="form-control" ng-model ="grpTypes">
+							            	 	<option value="">-- Select Groups Type-- </option>
+						            	 	
+							            	 	<option value="adv">Adventure</option>
+							            	 	<option value="crtv">Creative</option>
+							            	 	<option value="sprt">Sports</option>
+							            	 											
+
 											</select> 
 							          	</div>
 							          	<div class="form-group">
-							                <div class='input-group date-time' id='datetimepicker3'>
-							                    <input type='text' class="form-control" placeholder="Pickup Date" />
-							                    <span class="input-group-addon">
-							                        <span class="fa fa-calendar"></span>
-							                    </span>
-							                </div>
+							                <input type='text' class="form-control" placeholder="Group Name" ng-model="grpName"/>
+							                    
 							            </div>
 							          	<div class="form-group">
-							                <div class='input-group date-time' id='datetimepicker4'>
-							                    <input type='text' class="form-control" placeholder="Return Date" />
-							                    <span class="input-group-addon">
-							                        <span class="fa fa-calendar"></span>
-							                    </span>
-							                </div>
+							               
+							                    <input type='text' class="form-control" placeholder="Admin Name" ng-model="adminName" />
 							            </div>
-							            <div class="form-group">
-							            	 <select class="form-control">
-							            	 	<option value="">-- Options -- </option>
-							            	 	<option value="">Child Seat</option>
-												<option value="">GPS Navigator</option>
-												<option value="">Insurance</option>
-											</select> 
-							          	</div>							           
+							           	<div class="form-group">
+
+							              <input type="radio" name="grouptype" value="0" ng-model="grpVsble" checked> Public<br>
+  										  <input type="radio" name="grouptype" value="1" ng-model="grpVsble"> Private<br>
+
+  										</div>
+							           						           
 									</div>							
 						            <div class="form-group tm-yellow-gradient-bg text-center">
-						            	<button type="submit" name="submit" class="tm-yellow-btn">Check Now</button>
+						            	<button type="submit" name="submit" class="tm-yellow-btn">Create Group</buteton>
 						            </div>  
 								</form>
 							</div>
@@ -250,5 +243,10 @@
 			</div>		
 		</div>
 	</section>
-	
+	<script>
+	$('#hotelCarTabs a').click(function (e) {
+		e.preventDefault()
+	  	$(this).tab('show')
+	});
+</script>
 	
