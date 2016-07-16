@@ -24,5 +24,17 @@ iTravelApp.factory('homeService', function($http) {
 			}
 			);
 		}
+		//adding new group info
+		factory.addGrpInfo = function(grpInfo){
+			
+			return $http.put("http://localhost:8080/ITravel/createGroup", grpInfo).then(function(response){
+				alert("Response status is" +response.status)
+				return response;
+			},
+			function(errResponse){
+				
+			}
+			);
+		}
 	return factory;
 });

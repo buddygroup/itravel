@@ -2,10 +2,7 @@
 		// HTML document is loaded. DOM is ready.
 		$(function() {
 
-			$('#hotelCarTabs a').click(function (e) {
-			  e.preventDefault()
-			  $(this).tab('show')
-			})
+			
 
         	$('.date').datetimepicker({
             	format: 'MM/DD/YYYY'
@@ -27,8 +24,10 @@
 		  	});
 		});
 		
+		
+		
 		// Load Flexslider when everything is loaded.
-		$(window).load(function() {	  		
+		$(window).load(function() {  		
 			// Vimeo API nonsense
 
 /*
@@ -83,3 +82,5 @@
 
 
 	  	});
+		
+		
