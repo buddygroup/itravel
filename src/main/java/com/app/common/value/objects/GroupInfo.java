@@ -1,7 +1,6 @@
 package com.app.common.value.objects;
 
 import java.io.Serializable;
-import java.util.List;
 
 public class GroupInfo implements Serializable{
 	
@@ -10,7 +9,7 @@ public class GroupInfo implements Serializable{
 	 */
 	private static final long serialVersionUID = 9036590244632968359L;
 
-	List<String> grpTypes;
+	String grpTypes;
 	
 	String grpName;
 	
@@ -18,17 +17,18 @@ public class GroupInfo implements Serializable{
 	
 	String adminName;
 
+
 	/**
 	 * @return the grpTypes
 	 */
-	public List<String> getGrpTypes() {
+	public String getGrpTypes() {
 		return grpTypes;
 	}
 
 	/**
 	 * @param grpTypes the grpTypes to set
 	 */
-	public void setGrpTypes(List<String> grpTypes) {
+	public void setGrpTypes(String grpTypes) {
 		this.grpTypes = grpTypes;
 	}
 
@@ -73,9 +73,4 @@ public class GroupInfo implements Serializable{
 	public void setAdminName(String adminName) {
 		this.adminName = adminName;
 	}
-
-	
-	
-	
-
 }

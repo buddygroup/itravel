@@ -9,6 +9,7 @@
             var userDetail = {
             		name : $scope.name,
             		email: $scope.email,
+            		password:$scope.password,
             		phone : $scope.phone,
             		location : $scope.location
             }
@@ -17,6 +18,21 @@
             	$scope.message = reponse.data;
             }); 	
             
+        }
+        
+      //addming new group info
+        $scope.addGrpInfo = function (){        	
+        	
+        	var grpInfo = {
+            		grpTypes : $scope.grpTypes,
+            		grpName : $scope.grpName,
+            		grpVsble : $scope.grpVsble,
+            		adminName : $scope.adminName
+            }
+            
+            homeService.addGrpInfo(grpInfo).then(function(response){
+            	$scope.message = reponse.data;
+            });
         }
     });
 
