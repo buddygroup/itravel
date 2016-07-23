@@ -9,6 +9,7 @@
             var userDetail = {
             		name : $scope.name,
             		email: $scope.email,
+            		password:$scope.password,
             		phone : $scope.phone,
             		location : $scope.location
             }
