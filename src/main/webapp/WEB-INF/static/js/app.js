@@ -15,9 +15,9 @@
             })
 
             // route for the about page
-            .when('/about', {
-                templateUrl : 'about.html',
-                controller  : 'aboutController'
+            .when('/grpDtl', {
+                templateUrl : 'groupDetails.html',
+                controller  : 'groupDetailsController'
             })
 
             // route for the contact page

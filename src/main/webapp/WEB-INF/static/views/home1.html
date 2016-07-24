@@ -45,13 +45,17 @@
 					    </div>
 					    <div role="tabpanel" class="tab-pane fade tm-white-bg" id="addGroup">
 							<div class="tm-search-box effect2">
-								<form action="#" method="post" class="hotel-search-form">
+								<form method="post" class="hotel-search-form" ng-submit="addGrpInfo()">
 									<div class="tm-form-inner">
 										<div class="form-group">
 							            	 <select class="form-control" ng-model ="grpTypes">
 							            	 	<option value="">-- Select Groups Type-- </option>
-							            	 	<option value="shangrila">Adventure</option>
-											
+						            	 	
+							            	 	<option value="adv">Adventure</option>
+							            	 	<option value="crtv">Creative</option>
+							            	 	<option value="sprt">Sports</option>
+							            	 											
+
 											</select> 
 							          	</div>
 							          	<div class="form-group">
@@ -63,8 +67,10 @@
 							                    <input type='text' class="form-control" placeholder="Admin Name" ng-model="adminName" />
 							            </div>
 							           	<div class="form-group">
-							              <input type="radio" name="grouptype" value="0" ng-model="pubGrp" checked> Public<br>
-  										  <input type="radio" name="grouptype" value="1" ng-model="prvGrp"> Private<br>
+
+							              <input type="radio" name="grouptype" value="0" ng-model="grpVsble" checked> Public<br>
+  										  <input type="radio" name="grouptype" value="1" ng-model="grpVsble"> Private<br>
+
   										</div>
 							           						           
 									</div>							
@@ -73,7 +79,7 @@
 						            </div>  
 								</form>
 							</div>
-					    </div>				    
+					    </div>			    
 					</div>
 				</div>								
 			</div>
@@ -243,7 +249,9 @@
 	<script>
 	$('#hotelCarTabs a').click(function (e) {
 		e.preventDefault()
-	  	$(this).tab('show')
+	  	$(this).tab('show');
+			 
 	});
+	
 </script>
 	

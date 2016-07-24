@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.app.common.value.objects.ContactUsInfo;
 
+/**
+ * @author Aman2323
+ *
+ */
 @Controller
 public class ContactUsInfoController {
 	

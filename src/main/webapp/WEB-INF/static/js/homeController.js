@@ -36,7 +36,7 @@
         }
     });
 
-    iTravelApp.controller('aboutController', function($scope) {
+    iTravelApp.controller('groupDetailsController', function($scope) {
         $scope.message = 'Look! I am an about page.';
     });
 
