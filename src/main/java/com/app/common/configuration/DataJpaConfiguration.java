@@ -13,6 +13,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaDialect;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -60,16 +61,16 @@ public class DataJpaConfiguration {
 	        @Bean	    
 	        public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 	   
-	            LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();	   
-	            entityManagerFactoryBean.setDataSource(dataSource());	    
-	            entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());	    
-	            entityManagerFactoryBean.setPackagesToScan(env.   
+	        	LocalContainerEntityManagerFactoryBean sessionFactory = new LocalContainerEntityManagerFactoryBean();  
+	        	 sessionFactory.setDataSource(dataSource());	    
+	        	 sessionFactory.setJpaVendorAdapter(new HibernateJpaVendorAdapter());	    
+	        	 sessionFactory.setPackagesToScan(env.   
 	            getRequiredProperty(PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN));      
 	    
-	            entityManagerFactoryBean.setJpaProperties(hibProperties());
+	        	 sessionFactory.setJpaProperties(hibProperties());
 	   
 	   
-	            return entityManagerFactoryBean;
+	            return sessionFactory;
 	    
 	        }
 	    
@@ -84,7 +85,8 @@ public class DataJpaConfiguration {
 	        @Bean	   
 	        public JpaTransactionManager transactionManager() {	    
 	            JpaTransactionManager transactionManager = new JpaTransactionManager();	    
-	            transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());	   
+	            transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
+	            transactionManager.setJpaDialect(new HibernateJpaDialect());
 	            return transactionManager;
 	    
 	        }

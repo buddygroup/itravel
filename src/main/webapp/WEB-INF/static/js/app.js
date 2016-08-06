@@ -7,7 +7,11 @@
     // configure our routes
     iTravelApp.config(function($routeProvider) {
         $routeProvider
-
+        //default login page
+        .when('/', {
+            templateUrl : 'home1.html',
+            controller  : 'homeController'
+        })
             // route for the home page
             .when('/home', {
                 templateUrl : 'home1.html',

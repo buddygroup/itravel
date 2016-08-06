@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.app.common.dao.entity.UsersEntity;
 import com.app.common.dao.repository.UserRepository;
@@ -25,20 +27,20 @@ public class UserServiceImpl implements UserService {
 	
 	
 	@Override
+	@Transactional(readOnly=false, propagation=Propagation.REQUIRED)
 	public void addMember(User user) {
-		UsersEntity lUserEntity = new UsersEntity();
-		lUserEntity.setCreateDate(Calendar.getInstance().getTime());
-		lUserEntity.setEmail(user.getEmail());
-		lUserEntity.setLocation(user.getLocation());
+	
+			UsersEntity lUserEntity = new UsersEntity();
+			lUserEntity.setCreateDate(Calendar.getInstance().getTime());
+			lUserEntity.setEmail(user.getEmail());
+			lUserEntity.setLocation(user.getLocation());
+			
+			lUserEntity.setPassword(user.getPassword());
+			lUserEntity.setUser(user.getName());
+			lUserRepo.saveAndFlush(lUserEntity);
 		
-		lUserEntity.setPassword(user.getPassword());
-		lUserEntity.setUser(user.getName());
-		lUserRepo.save(lUserEntity);
 		
 		
-		List<UsersEntity>  lUserr= lUserRepo.findById(1);
-		
-		System.out.println(lUserr.get(0).getEmail());
 	}
 
 }
