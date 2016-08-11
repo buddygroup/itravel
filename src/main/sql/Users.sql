@@ -1,9 +1,10 @@
-CREATE TABLE `users` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `user` varchar(30) NOT NULL,
-  `email` varchar(30) DEFAULT NULL,
-  `password` varchar(100) NOT NULL,
-  `create_date` date NOT NULL,
-  `location` varchar(40) NOT NULL,
-  PRIMARY KEY (`id`)
-) 
+drop table users;
+CREATE TABLE users (
+  id int NOT NULL AUTO_INCREMENT,
+  user varchar(30) NOT NULL,
+  email varchar(30) DEFAULT NULL,
+  password varchar(100) NOT NULL,
+  create_date date NOT NULL,
+  location varchar(40) NOT NULL,
+  PRIMARY KEY (id)
+); 
