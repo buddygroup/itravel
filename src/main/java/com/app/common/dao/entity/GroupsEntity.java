@@ -17,19 +17,19 @@ import java.util.List;
 import javax.persistence.*;
 
 /**
- * Persistent class for entity stored in table "users"
+ * Persistent class for entity stored in table "groups"
  *
  * @author Telosys Tools Generator
  *
  */
 
 @Entity
-@Table(name="users")
+@Table(name="groups")
 // Define named queries here
 @NamedQueries ( {
-  @NamedQuery ( name="UsersEntity.countAll", query="SELECT COUNT(x) FROM UsersEntity x" )
+  @NamedQuery ( name="GroupsEntity.countAll", query="SELECT COUNT(x) FROM GroupsEntity x" )
 } )
-public class UsersEntity implements Serializable {
+public class GroupsEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -38,85 +38,87 @@ public class UsersEntity implements Serializable {
     //----------------------------------------------------------------------
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="id", nullable=false)
-    private Long       id           ;
+    @Column(name="group_id", nullable=false)
+    private Integer    groupId      ;
 
 
     //----------------------------------------------------------------------
     // ENTITY DATA FIELDS 
     //----------------------------------------------------------------------    
-    @Column(name="user", nullable=false, length=30)
-    private String     user         ;
+    @Column(name="group_name", nullable=false, length=50)
+    private String     groupName    ;
 
-    @Column(name="email", length=30)
-    private String     email        ;
+    @Column(name="group_code", length=50)
+    private String     groupCode    ;
 
-    @Column(name="password", nullable=false, length=100)
-    private String     password     ;
+    @Column(name="group_description", nullable=false, length=100)
+    private String     groupDescription ;
 
     @Temporal(TemporalType.DATE)
     @Column(name="create_date", nullable=false)
     private Date       createDate   ;
 
-    @Column(name="location", nullable=false, length=40)
-    private String     location     ;
+    @Column(name="public", nullable=false)
+    private Boolean    public_private       ;
+
+	// "adminId" (column "admin_id") is not defined by itself because used as FK in a link 
 
 
+    //----------------------------------------------------------------------
+    // ENTITY LINKS ( RELATIONSHIP )
+    //----------------------------------------------------------------------
+    @ManyToOne
+    @JoinColumn(name="admin_id", referencedColumnName="id")
+    private UsersEntity users       ;
 
-    
+   
 
-    @OneToMany(mappedBy="users", targetEntity=UserProfileEntity.class)
-    private List<UserProfileEntity> listOfUserProfile;
-
-    @OneToMany(mappedBy="users", targetEntity=GroupsEntity.class)
-    private List<GroupsEntity> listOfGroups;
-
-    @OneToMany(mappedBy="users", targetEntity=GroupContentsEntity.class)
+    @OneToMany(mappedBy="groups", targetEntity=GroupContentsEntity.class)
     private List<GroupContentsEntity> listOfGroupContents;
 
 
     //----------------------------------------------------------------------
     // CONSTRUCTOR(S)
     //----------------------------------------------------------------------
-    public UsersEntity() {
+    public GroupsEntity() {
 		super();
     }
     
     //----------------------------------------------------------------------
     // GETTER & SETTER FOR THE KEY FIELD
     //----------------------------------------------------------------------
-    public void setId( Long id ) {
-        this.id = id ;
+    public void setGroupId( Integer groupId ) {
+        this.groupId = groupId ;
     }
-    public Long getId() {
-        return this.id;
+    public Integer getGroupId() {
+        return this.groupId;
     }
 
     //----------------------------------------------------------------------
     // GETTERS & SETTERS FOR FIELDS
     //----------------------------------------------------------------------
-    //--- DATABASE MAPPING : user ( VARCHAR ) 
-    public void setUser( String user ) {
-        this.user = user;
+    //--- DATABASE MAPPING : group_name ( VARCHAR ) 
+    public void setGroupName( String groupName ) {
+        this.groupName = groupName;
     }
-    public String getUser() {
-        return this.user;
-    }
-
-    //--- DATABASE MAPPING : email ( VARCHAR ) 
-    public void setEmail( String email ) {
-        this.email = email;
-    }
-    public String getEmail() {
-        return this.email;
+    public String getGroupName() {
+        return this.groupName;
     }
 
-    //--- DATABASE MAPPING : password ( VARCHAR ) 
-    public void setPassword( String password ) {
-        this.password = password;
+    //--- DATABASE MAPPING : group_code ( VARCHAR ) 
+    public void setGroupCode( String groupCode ) {
+        this.groupCode = groupCode;
     }
-    public String getPassword() {
-        return this.password;
+    public String getGroupCode() {
+        return this.groupCode;
+    }
+
+    //--- DATABASE MAPPING : group_description ( VARCHAR ) 
+    public void setGroupDescription( String groupDescription ) {
+        this.groupDescription = groupDescription;
+    }
+    public String getGroupDescription() {
+        return this.groupDescription;
     }
 
     //--- DATABASE MAPPING : create_date ( DATE ) 
@@ -127,33 +129,26 @@ public class UsersEntity implements Serializable {
         return this.createDate;
     }
 
-    //--- DATABASE MAPPING : location ( VARCHAR ) 
-    public void setLocation( String location ) {
-        this.location = location;
+    //--- DATABASE MAPPING : public ( BIT ) 
+    public void setPublic( Boolean public_private ) {
+        this.public_private = public_private;
     }
-    public String getLocation() {
-        return this.location;
+    public Boolean getPublic() {
+        return this.public_private;
     }
 
 
     //----------------------------------------------------------------------
     // GETTERS & SETTERS FOR LINKS
     //----------------------------------------------------------------------
+    public void setUsers( UsersEntity users ) {
+        this.users = users;
+    }
+    public UsersEntity getUsers() {
+        return this.users;
+    }
+
    
-
-    public void setListOfUserProfile( List<UserProfileEntity> listOfUserProfile ) {
-        this.listOfUserProfile = listOfUserProfile;
-    }
-    public List<UserProfileEntity> getListOfUserProfile() {
-        return this.listOfUserProfile;
-    }
-
-    public void setListOfGroups( List<GroupsEntity> listOfGroups ) {
-        this.listOfGroups = listOfGroups;
-    }
-    public List<GroupsEntity> getListOfGroups() {
-        return this.listOfGroups;
-    }
 
     public void setListOfGroupContents( List<GroupContentsEntity> listOfGroupContents ) {
         this.listOfGroupContents = listOfGroupContents;
@@ -169,17 +164,17 @@ public class UsersEntity implements Serializable {
     public String toString() { 
         StringBuffer sb = new StringBuffer(); 
         sb.append("["); 
-        sb.append(id);
+        sb.append(groupId);
         sb.append("]:"); 
-        sb.append(user);
+        sb.append(groupName);
         sb.append("|");
-        sb.append(email);
+        sb.append(groupCode);
         sb.append("|");
-        sb.append(password);
+        sb.append(groupDescription);
         sb.append("|");
         sb.append(createDate);
         sb.append("|");
-        sb.append(location);
+        sb.append(public_private);
         return sb.toString(); 
     } 
 

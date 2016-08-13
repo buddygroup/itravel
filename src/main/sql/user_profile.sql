@@ -1,5 +1,5 @@
 CREATE TABLE user_profile (
-  user_id int NOT NULL AUTO_INCREMENT,
+  user_id BIGINT(20) NOT NULL AUTO_INCREMENT,
   user_description varchar(30) NOT NULL,
   pics varchar(30) DEFAULT NULL,
   user_tag_line varchar(100) NOT NULL,

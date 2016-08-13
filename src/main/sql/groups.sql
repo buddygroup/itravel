@@ -5,7 +5,7 @@ CREATE TABLE groups (
   group_description varchar(100) NOT NULL,
   create_date date NOT NULL,
   public boolean not null default 0,
-  admin_id int not null,
+  admin_id BIGINT(20) not null,
   PRIMARY KEY (group_id),
   FOREIGN KEY (admin_id) REFERENCES users(id)
 ) ;
