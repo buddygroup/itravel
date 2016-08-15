@@ -1,191 +1,132 @@
-<div class="container" style="margin-left:150">
-    <div class="row">
-        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
-            <div class="panel panel-default">
-                <div class="panel-heading c-list">
-                    <span class="title">Groups</span>
-                    <ul class="pull-right c-controls">
-                        <li><a href="#add-group-details" data-toggle="tooltip" data-placement="top" title="Add Contact"><i class="glyphicon glyphicon-plus"></i></a></li>
-                        <li><a href="#" class="hide-search" data-command="toggle-search" data-toggle="tooltip" data-placement="top" title="Toggle Search"><i class="fa fa-ellipsis-v"></i></a></li>
-                    </ul>
-                </div>
-                
-               <div class="row" style="display: none;">
-                    <div class="col-xs-12">
-                        <div class="input-group c-search">
-                            <input type="text" class="form-control" id="j">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search text-muted"></span></button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-           </div>
-        </div>
-	</div>
-    <!-- Group Details Div Starts -->
-    <div id="add-group-details" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" >
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="mySmallModalLabel">Group Name</h4>
-                </div>
-                <div class="modal-body">
-                   <form class="hotel-search-form" ng-submit="addMember()">
-									<div class="tm-form-inner">
-										<div class="form-group">
-											 <input type='text' class="form-control" placeholder="Name" ng-model="name"/>
-							          	</div>
-							          	<div class="form-group">
-											 <input type='text' class="form-control" placeholder="Email Id" ng-model="email"/>
-							          	</div>
-							          	<div class="form-group">
-											 <input type='password' class="form-control" placeholder="Password" ng-model="password"/>
-							          	</div>
-							          	<div class="form-group">
-											 <input type='text' class="form-control" placeholder="Phone no" ng-model="phone"/>
-							          	</div>
-							            <div class="form-group">
-											 <input type='text' class="form-control" placeholder="Location" ng-model="location"/>
-							          	</div>
-									</div>							
-						            <div class="form-group j text-center">
-						            	<button type="submit" name="submit" class="tm-yellow-btn1">Update Group Details</button>
-						            </div>  
+<script type="text/javascript">
+        $(document).ready(function() {
+    		$("#div1").hide();
+    		 
+    	});
+ </script>    
+        <div class="container">
+                        <!-- === END HEADER === -->
+                        <!-- === BEGIN CONTENT === -->
+                        <div class="row margin-vert-30">
+                            <!-- Side Column -->
+                            <div class="col-md-3">
+                                <!-- Recent Posts -->
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Most Awarded Groups</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <ul class="posts-list margin-top-10">
+                                            <li>
+                                                <div class="recent-post">
+                                                    <a href="">
+                                                        <img class="pull-left" src="/ITravel/static/img/about-4.jpg" alt="thumb1">
+                                                    </a>
+                                                    <a href="#" class="posts-list-title">Rockers Group</a>
+                                                    <br>
+                                                    <span class="recent-post-date">
+                                                        July 30, 2013
+                                                    </span>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <li>
+                                                <div class="recent-post">
+                                                    <a href="">
+                                                        <img class="pull-left" src="/ITravel/static/img/about-6.jpg" alt="thumb2">
+                                                    </a>
+                                                    <a href="#" class="posts-list-title">Dare Davils</a>
+                                                    <br>
+                                                    <span class="recent-post-date">
+                                                        July 30, 2013
+                                                    </span>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <li>
+                                                <div class="recent-post">
+                                                    <a href="">
+                                                        <img class="pull-left" src="/ITravel/static/img/about-5.jpg" alt="thumb3">
+                                                    </a>
+                                                    <a href="#" class="posts-list-title">Travel Masti</a>
+                                                    <br>
+                                                    <span class="recent-post-date">
+                                                        July 30, 2013
+                                                    </span>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <li>
+                                                <div class="recent-post">
+                                                    <a href="">
+                                                        <img class="pull-left" src="/ITravel/static/img/about-4.jpg" alt="thumb4">
+                                                    </a>
+                                                    <a href="#" class="posts-list-title">Spontaneous Group</a>
+                                                    <br>
+                                                    <span class="recent-post-date">
+                                                        July 30, 2013
+                                                    </span>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- End recent Posts -->
+                                
+                            </div>
+                            <!-- End Side Column -->
+                            <div style="position:static;"><h2>Add Group Details</h2><br/></div>
+                            
+                            <!-- Main Column -->
+                           
+								<form method="post" class="hotel-search-form" ng-submit="addGrpInfo()">
+									
+										<div class="left-to-right-div">							                
+							                <input type='text' class="textInputleft" placeholder="Group Name" ng-model="grpName"/>
+							                <span class="spanPadding">
+							                <input type='text' class="textInputleft" placeholder="Group Type" ng-model="grpType"/>
+							                </span>
+							                <span class="spanPadding">
+							                <input type='text' class="textInputleft" placeholder="Group Name" ng-model="grpName"/>
+							                </span> 
+							                <span class="spanPadding">
+							                <input type="file" class="custom-file-input" />
+							                 </span>
+							            </div>
+							            
+							            
+							          	<div class="right-to-left-div">
+							                   <input type='text' class="textInputRight" placeholder="Admin Name" ng-model="adminName"/>
+							                   <span class="spanPadding">
+							                   <input type='text' class="textInputRight" placeholder="Admin Name" ng-model="adminName"/>
+							                   </span>
+							                   <span class="spanPadding">
+							                   <input type='text' class="textInputRight" placeholder="Admin Name" ng-model="adminName"/>
+							                   </span>
+							                   
+							            </div>
+							           
+							           <div class="left-to-right-div-area">
+							            	<span class="spanPadding">
+							                <textarea rows="4" cols="50"class ="textareaDesc" ng-model="grpDesp" placeholder="Few Words about Your Group"></textarea>
+							                </span>
+							            </div>
+							            
+							            <div class="buttonGrp">
+						            			<button type="submit" name="submit" class="button-color">Add Group Details</button>
+						           	    </div> 
+							           							           						           
+															
+						            
 								</form>
-                </div>
-            </div>
-        </div>
-    </div>
-   
-    
-    
-</div>
- <!-- Group Details Div Ends -->
-
-<style>
-
-.col-sm-offset-3 {
-    margin-left: -8%;
-}
-
-.tm-yellow-btn1 {
-	width: 275px;
-	height: 40px;
-	background-color: #F5D338;
-	border: medium none;
-	color: #5C4905;
-	font-size: 12px;
-	margin: 24px auto;
-	text-transform: uppercase;
-	box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.3);
-}
-.c-search > .form-control {
-   border-radius: 0px;
-   border-width: 0px;
-   border-bottom-width: 1px;
-   font-size: 1.3em;
-   padding: 12px 12px;
-   height: 44px;
-   outline: none !important;
-}
-.c-search > .form-control:focus {
-    outline:0px !important;
-    -webkit-appearance:none;
-    box-shadow: none;
-}
-.c-search > .input-group-btn .btn {
-   border-radius: 0px;
-   border-width: 0px;
-   border-left-width: 1px;
-   border-bottom-width: 1px;
-   height: 44px;
-}
-
-.modal-content{
- width:550px;
- height: 550px;
-}
-.c-list {
-    padding: 0px;
-    min-height: 44px;
-}
-.title {
-    display: inline-block;
-    font-size: 1.7em;
-    font-weight: bold;
-    padding: 5px 15px;
-}
-ul.c-controls {
-    list-style: none;
-    margin: 0px;
-    min-height: 44px;
-}
-
-ul.c-controls li {
-    margin-top: 8px;
-    float: left;
-}
-
-ul.c-controls li a {
-    font-size: 1.7em;
-    padding: 11px 10px 6px;   
-}
-ul.c-controls li a i {
-    min-width: 24px;
-    text-align: center;
-}
-
-ul.c-controls li a:hover {
-    background-color: rgba(51, 51, 51, 0.2);
-}
-
-.c-toggle {
-    font-size: 1.7em;
-}
-
-
-
-
-</style>
-
-
-	<script type="text/javascript">
-	$(document).ready(function() {
-		
-		$("#div1").hide();
-		 
-		});
-	
-	$(function () {
-	    /* BOOTSNIPP FULLSCREEN FIX */
-	    if (window.location == window.parent.location) {
-	        $('#back-to-bootsnipp').removeClass('hide');
-	    }
-	    
-	    
-	    $('[data-toggle="tooltip"]').tooltip();
-	    
-	    $('#fullscreen').on('click', function(event) {
-	        event.preventDefault();j
-	        window.parent.location = "http://bootsnipp.com/iframe/4l0k2";
-	    });
-	    $('a[href="#add-group-details"]').on('click', function(event) {
-	        event.preventDefault();
-	        $('#add-group-details').modal('show');
-	    })
-	    
-	    $('[data-command="toggle-search"]').on('click', function(event) {
-	        event.preventDefault();
-	        $(this).toggleClass('hide-search');
-	        
-	        if ($(this).hasClass('hide-search')) {        
-	            $('.c-search').closest('.row').slideUp(100);
-	        }else{   
-	            $('.c-search').closest('.row').slideDown(100);
-	        }
-	    })
-	    
-	   
-	});
-	</script>j
+							
+                            <!-- End Main Column -->
+                        </div>
+                        <!-- === END CONTENT === -->
+                      
+                    </div>
+                    
+             
+        
+     

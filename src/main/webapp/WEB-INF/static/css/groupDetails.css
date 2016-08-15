@@ -1,0 +1,81 @@
+.right-to-left-div{
+        	width:41%;
+        	margin: auto;
+        	padding: 6px 12px; 
+        	float: right;
+        	vertical-align: middle;
+        	}
+        	
+        	.left-to-right-div{
+        	width:20%;
+        	margin: auto;
+        	padding: 6px 12px; 
+        	float: left;
+        	vertical-align: middle;
+        	}
+        	
+        	.left-to-right-div-area{
+        	width:75%;
+        	margin: auto;
+        	padding: -1px 12px; 
+        	float: right;
+        	vertical-align: middle;
+        	
+        	}
+        	.textInputRight{
+        	display: block; 
+        	width: 76%; 
+        	height: 34px;  
+        	padding: 6px 12px;  
+        	font-size: 14px;  
+        	line-height: 1.42857143;  
+        	color: #555;  
+        	background-color: #fff;  
+        	background-image: none;  
+        	border: 1px solid #ccc;
+        	align :top;
+        	align-content: left;
+        	}
+        	.textInputleft{
+        	display: block; 
+        	width: 150%; 
+        	height: 34px;  
+        	padding: 6px 12px;  
+        	font-size: 14px;  
+        	line-height: 1.42857143;  
+        	color: #555;  
+        	background-color: #fff;  
+        	background-image: none;  
+        	border: 1px solid #ccc;
+        	align-content: left;
+        	}
+        	
+        	.spanPadding{
+        	padding: 6px 12px;  
+        	}
+        	
+        	.textareaDesc{
+        	margin: 0px;
+    		height: 94px;
+    		width: 747px;
+        	}
+        	
+        	.buttonGrp{
+        	width:60%;
+        	margin: auto;
+        	padding: 6px 12px; 
+        	float: right;
+        	vertical-align: middle;
+        	}
+        	
+        	.button-color{
+        	    width: 390px;
+			    height: 40px;
+			    background-color: #F5D338;
+			    border: medium none;
+			    color: #5C4905;
+			    font-size: 12px;
+			    margin: 24px auto;
+			    text-transform: uppercase;
+			    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.3);
+			}
