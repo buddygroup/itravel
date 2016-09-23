@@ -67,7 +67,7 @@ public class GroupsEntity implements Serializable {
     //----------------------------------------------------------------------
     // ENTITY LINKS ( RELATIONSHIP )
     //----------------------------------------------------------------------
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="admin_id", referencedColumnName="id")
     private UsersEntity users       ;
 

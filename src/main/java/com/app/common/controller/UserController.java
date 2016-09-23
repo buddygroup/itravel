@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.app.common.value.objects.GroupInfo;
 import com.app.common.value.objects.User;
+import com.app.user.service.GroupService;
 import com.app.user.service.UserService;
 
 /**
@@ -21,6 +22,8 @@ import com.app.user.service.UserService;
 public class UserController {
 	@Autowired
 	UserService userService;
+	@Autowired
+	GroupService groupService;
 
 	public void setUserService(UserService userService) {
 		this.userService = userService;
@@ -46,6 +49,7 @@ public class UserController {
 	@ResponseBody
 	public String addNewGroup(@RequestBody GroupInfo grpInfo) {
 		System.out.println("add user " + grpInfo.getGrpName());
+		groupService.addGroup(grpInfo);
 		return "success";
 
 	}

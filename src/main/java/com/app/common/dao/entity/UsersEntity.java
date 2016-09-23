@@ -39,7 +39,7 @@ public class UsersEntity implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="id", nullable=false)
-    private Long       id           ;
+    private Integer       id           ;
 
 
     //----------------------------------------------------------------------
@@ -85,10 +85,10 @@ public class UsersEntity implements Serializable {
     //----------------------------------------------------------------------
     // GETTER & SETTER FOR THE KEY FIELD
     //----------------------------------------------------------------------
-    public void setId( Long id ) {
+    public void setId( Integer id ) {
         this.id = id ;
     }
-    public Long getId() {
+    public Integer getId() {
         return this.id;
     }
 
