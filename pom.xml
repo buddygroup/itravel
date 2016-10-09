@@ -9,7 +9,8 @@
   <url>http://maven.apache.org</url>
   <properties>
         <spring.version>4.1.1.RELEASE</spring.version>
-        <jackson.version>2.5.3</jackson.version>
+        <springsecurity.version>4.0.1.RELEASE</springsecurity.version>
+        <jackson.version>2.6.2</jackson.version>
         <hibernate.version>4.2.8.Final</hibernate.version>
         <mysql.connector.version>5.1.38</mysql.connector.version>
         <joda-time.version>2.3</joda-time.version>
@@ -81,6 +82,18 @@
 				<artifactId>spring-data-jpa</artifactId>
 				<version>1.9.4.RELEASE</version>
 			</dependency>
+			
+			<dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${springsecurity.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${springsecurity.version}</version>
+        </dependency>
+			
 			<!-- Spring Dependency Ends -->
 			
 			<!-- Json Data Converter Dependency Starts -->
@@ -154,4 +167,30 @@
       </plugin>
   </plugins>
   </build>
+  <repositories>
+    <repository>
+      <id>central</id>
+      <name>Maven Repository Switchboard</name>
+      <layout>default</layout>
+      <url>http://repo1.maven.org/maven2</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>central</id>
+      <name>Maven Plugin Repository</name>
+      <url>http://repo1.maven.org/maven2</url>
+      <layout>default</layout>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+    </pluginRepository>
+  </pluginRepositories> 
 </project>

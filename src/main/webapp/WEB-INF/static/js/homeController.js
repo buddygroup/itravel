@@ -1,11 +1,12 @@
  // create the controller and inject Angular's $scope
-    iTravelApp.controller('homeController', function($scope, homeService) {
+    iTravelApp.controller('homeController', function($rootScope, $scope,$http, homeService) {
         // create a message to display in our view
+    	
+    	var self = this
         $scope.message = 'Everyone come and see how good I look!';
         $scope.addMember = function () {
-        	
             $scope.myTxt = "You clicked submit!";
-            alert("did you called submit in home");
+            alert("Did you called submit in home");
             var userDetail = {
             		name : $scope.name,
             		email: $scope.email,
@@ -20,19 +21,80 @@
             
         }
         
+        self.logout = function() {
+        	  $http.post("http://localhost:8080/ITravel/logout", {}).then(function successCallback(response) {
+        		  $rootScope.authenticated = false;
+          	    	$location.path("/");
+          	    	$scope.user="";
+        		  }, function errorCallback(response) {
+        			  $rootScope.authenticated = false;
+              	    $location.path("/");
+              	  $scope.user="";
+        		  }); 
+        }
+        
+        var authenticate = function(callback) {
+            $http.get("http://localhost:8080/ITravel/user").success(function(data) {
+              if (data.name) {
+                $rootScope.authenticated = true;
+                $scope.user =data.name;
+              } else {
+                $rootScope.authenticated = false;
+              }
+              callback && callback();
+            }).error(function() {
+              $rootScope.authenticated = false;
+              callback && callback();
+            });
+          }
+        authenticate();
+          $scope.credentials = {};
+          $scope.login = function() {
+            $http.post("http://localhost:8080/ITravel/login", $.param($scope.credentials), {
+              headers : {
+                "content-type" : "application/x-www-form-urlencoded"
+              }
+            }).success(function(data) {
+              authenticate(function() {
+                if ($rootScope.authenticated) {
+                  $location.path("/");
+                  $scope.error = false;
+                } else {
+                  $location.path("/login");
+                  $scope.error = true;
+                }
+              });
+            }).error(function(data) {
+              $location.path("/login");
+              $scope.error = true;
+              $rootScope.authenticated = false;
+            })
+          };
+        
       //addming new group info
         $scope.addGrpInfo = function (){        	
         	
-        	var grpInfo = {
-            		grpTypes : $scope.grpTypes,
-            		grpName : $scope.grpName,
-            		grpVsble : $scope.grpVsble,
-            		adminName : $scope.adminName
-            }
-            
-            homeService.addGrpInfo(grpInfo).then(function(response){
-            	$scope.message = reponse.data;
-            });
+        	authenticate(function() {
+                if ($rootScope.authenticated) {
+          
+                	var grpInfo = {
+                    		grpTypes : $scope.grpTypes,
+                    		grpName : $scope.grpName,
+                    		grpVsble : $scope.grpVsble,
+                    		adminName : $scope.adminName
+                    }
+                    
+                    homeService.addGrpInfo(grpInfo).then(function(response){
+                    	$scope.message = reponse.data;
+                    });
+                  $scope.error = false;
+                } else {
+                 alert("please log in before creating a group");
+                  $scope.error = true;
+                }
+              });
+        	
+        	
         }
     });
 

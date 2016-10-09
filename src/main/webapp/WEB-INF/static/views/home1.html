@@ -7,8 +7,12 @@
 				<!-- Nav tabs -->
 				<div class="tm-home-box-1">
 					<ul class="nav nav-tabs tm-white-bg" role="tablist" id="hotelCarTabs">
-					    <li role="presentation" class="active">
+					    <li ng-hide="authenticated" role="presentation" class="active">
 					    	<a href="#signUp" aria-controls="hotel" role="tab" data-toggle="tab">Sign up</a>
+					    </li>
+					    
+					    <li ng-show="authenticated" role="presentation" class="active">
+					    	<a href="" aria-controls="hotel" role="tab" data-toggle="tab">Hi</a>
 					    </li>
 					    <li role="presentation">
 					    	<a href="#addGroup" aria-controls="car" role="tab" data-toggle="tab">Add Group</a>
@@ -18,7 +22,8 @@
 					<!-- Tab panes -->
 					<div class="tab-content">
 					    <div role="tabpanel" class="tab-pane fade in active tm-white-bg" id="signUp">
-					    	<div class="tm-search-box effect2">
+					    
+					    	<div ng-hide="authenticated" class="tm-search-box effect2">
 								<form class="hotel-search-form" ng-submit="addMember()">
 									<div class="tm-form-inner">
 										<div class="form-group">
@@ -86,13 +91,14 @@
 
 			<div class="col-lg-4 col-md-4 col-sm-6">
 				<div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-center">
-					<img src="/ITravel/static/img/index-01.jpg" alt="image" class="img-responsive">
-					<a href="#">
-						<div class="tm-green-gradient-bg tm-city-price-container">
-							<span>New York</span>
-							<span>$6,600</span>
-						</div>	
-					</a>			
+					<div class="tm-search-box ">
+					<br><br><br>
+					    	<form role="form" ng-submit="login()">
+								<div class="form-group">
+								<div class="col-lg-4 col-md-4 col-sm-4"><h2 class="tm-section-info">Hello <h2 class="tm-section-title">{{user}}</h2></h2></div>
+								</div>
+							</form>
+							</div>			
 				</div>				
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-6">

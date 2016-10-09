@@ -53,6 +53,9 @@ public class GroupsEntity implements Serializable {
 
     @Column(name="group_description", nullable=false, length=100)
     private String     groupDescription ;
+    
+    @Column(name="group_pics", nullable=false, length=500)
+    private String     groupPics ;
 
     @Temporal(TemporalType.DATE)
     @Column(name="create_date", nullable=false)
@@ -121,6 +124,14 @@ public class GroupsEntity implements Serializable {
         return this.groupDescription;
     }
 
+  //--- DATABASE MAPPING : group_pics ( VARCHAR ) 
+    public void setGroupPics( String groupPics ) {
+        this.groupPics = groupPics;
+    }
+    public String getGroupPics() {
+        return this.groupPics;
+    }
+    
     //--- DATABASE MAPPING : create_date ( DATE ) 
     public void setCreateDate( Date createDate ) {
         this.createDate = createDate;

@@ -3,6 +3,14 @@
     		$("#div1").hide();
     		 
     	});
+        function readURL() {
+            if ($("#imageUrl").val()!='') {
+            	 $('#image')
+                 .attr('src', $("#imageUrl").val())
+                 .width(150)
+                 .height(200);
+            }
+        }
  </script>    
         <div class="container">
                         <!-- === END HEADER === -->
@@ -85,13 +93,13 @@
 										<div class="left-to-right-div">							                
 							                <input type='text' class="textInputleft" placeholder="Group Name" ng-model="grpName"/>
 							                <span class="spanPadding">
-							                <input type='text' class="textInputleft" placeholder="Group Type" ng-model="grpType"/>
+							                <input type='text' class="textInputleft" placeholder="Group Type" ng-model="grpTypes"/>
 							                </span>
 							                <span class="spanPadding">
-							                <input type='text' class="textInputleft" placeholder="Group Name" ng-model="grpName"/>
-							                </span> 
 							                <span class="spanPadding">
-							                <input type="file" class="custom-file-input" />
+							                <input type='text' class="textInputleft" id="imageUrl" placeholder="Group Pics" onchange="readURL();" ng-model="grpPics"/>
+							                <span class="spanPadding">
+												<img id="image" src="#" alt="your image" />
 							                 </span>
 							            </div>
 							            
@@ -99,10 +107,6 @@
 							          	<div class="right-to-left-div">
 							                   <input type='text' class="textInputRight" placeholder="Admin Name" ng-model="adminName"/>
 							                   <span class="spanPadding">
-							                   <input type='text' class="textInputRight" placeholder="Admin Name" ng-model="adminName"/>
-							                   </span>
-							                   <span class="spanPadding">
-							                   <input type='text' class="textInputRight" placeholder="Admin Name" ng-model="adminName"/>
 							                   </span>
 							                   
 							            </div>

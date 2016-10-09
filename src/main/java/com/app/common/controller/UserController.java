@@ -1,5 +1,7 @@
 package com.app.common.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -43,7 +45,18 @@ public class UserController {
 		return "success";
 
 	}
-
+	
+	@RequestMapping("/home")
+	  public String home() {
+	    return "redirect:/static/views/Home.html";
+	  }
+	
+	@RequestMapping("/user")
+	@ResponseBody
+	  public Principal user(Principal user) {
+	    return user;
+	  }
+	
 	// Adding new group
 	@RequestMapping(value = "/createGroup", method = RequestMethod.PUT)
 	@ResponseBody

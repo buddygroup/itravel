@@ -25,7 +25,7 @@ http://www.templatemo.com/tm-475-holiday
     <![endif]-->
 
   </head>
-  <body class="tm-gray-bg" ng-controller="homeController">
+  <body class="tm-gray-bg" ng-controller="homeController as hc">
   	<!-- Header -->
   	<div class="tm-header">
   		<div class="container">
@@ -43,7 +43,9 @@ http://www.templatemo.com/tm-475-holiday
 							<li><a href="#grpDtl">Groups</a></li>
 							<li><a href="#tours">Our Tours</a></li>
 							<li><a href="#contact">Contact</a></li>
-							<li><input id="mysearch2" class="searchContainer" type="search" placeholder="Search Groups"></li>
+							<li><ul><li><input id="mysearch2" class="searchContainer" type="search" placeholder="Search Groups"></li>
+							<li ng-show="authenticated"><a href="" ng-click="hc.logout()">logout</a></li>
+									<li ng-hide="authenticated"><a href="/ITravel/home">login</a></li>></ul></li>
 						</ul>
 					</nav>		
 	  			</div>				

@@ -25,6 +25,19 @@ iTravelApp.factory('homeService', function($http) {
 			);
 		}
 		
+		factory.login = function(userDetail){
+			alert("I am in login service"+userDetail);
+			return  $http.get("http://localhost:8080/ITravel/login", userDetail).then(function(response){
+				alert("Response status is" +response.status);
+				return response;
+			},
+			function(errResponse){
+				
+			}
+			);
+			return "success";
+		}
+		
 		//adding new group info
 		factory.addGrpInfo = function(grpInfo){
 			

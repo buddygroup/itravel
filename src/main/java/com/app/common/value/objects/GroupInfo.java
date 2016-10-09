@@ -17,6 +17,9 @@ public class GroupInfo implements Serializable{
 	
 	String adminName;
 
+	String grpPics;
+	
+	String grpDesp;
 
 	/**
 	 * @return the grpTypes
@@ -73,4 +76,22 @@ public class GroupInfo implements Serializable{
 	public void setAdminName(String adminName) {
 		this.adminName = adminName;
 	}
+
+	public String getGrpPics() {
+		return grpPics;
+	}
+
+	public void setGrpPics(String grpPics) {
+		this.grpPics = grpPics;
+	}
+
+	public String getGrpDesp() {
+		return grpDesp;
+	}
+
+	public void setGrpDesp(String grpDesp) {
+		this.grpDesp = grpDesp;
+	}
+	
+	
 }
