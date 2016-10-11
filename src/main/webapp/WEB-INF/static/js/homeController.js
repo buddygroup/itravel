@@ -16,7 +16,7 @@
             }
             
             homeService.addMember(userDetail).then(function(response){
-            	$scope.message = reponse.data;
+            	$scope.message = response;
             }); 	
             
         }

@@ -3,6 +3,8 @@ package com.app.user.service.impl;
 import java.util.Calendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -48,6 +50,13 @@ public class UserServiceImpl implements UserService {
 		user.setLocation(lUserEntity.getLocation());
 		user.setEmail(lUserEntity.getEmail());
 		return user;
+	}
+
+
+	@Override
+	public UsersEntity getLoggedInUser() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		return lUserRepo.findByEmail(auth.getName()).get(0);
 	}
 
 	

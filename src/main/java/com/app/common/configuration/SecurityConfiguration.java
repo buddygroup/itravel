@@ -32,7 +32,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
        http
        .formLogin().and()
        .authorizeRequests()
-         .antMatchers("/static/views/Home.html","/static/*/*","/static/views/Home.html#/", "/static/views/Home.html#/home", "*/Home.html*/home", "/").permitAll()
+         .antMatchers("/static/views/Home.html","/static/*/*","/static/views/Home.html#/", "/static/views/Home.html#/home", "*/Home.html*/home", "/", "/addMember").permitAll()
          .antMatchers("/groupDetails.html").access("hasRole('ADMIN')")
          .anyRequest().authenticated().and()
          .addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class).csrf().csrfTokenRepository(csrfTokenRepository());

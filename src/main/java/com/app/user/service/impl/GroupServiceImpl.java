@@ -11,7 +11,7 @@ import com.app.common.dao.entity.GroupsEntity;
 import com.app.common.dao.repository.GroupsJpaRepository;
 import com.app.common.value.objects.GroupInfo;
 import com.app.user.service.GroupService;
-import com.app.user.util.UserUtility;
+import com.app.user.service.UserService;
 
 /**
  * 
@@ -26,7 +26,7 @@ import com.app.user.util.UserUtility;
 public class GroupServiceImpl implements GroupService {
 
 	@Autowired
-	private UserUtility userUtility;
+	private UserService userService;
 	@Autowired
 	private GroupsJpaRepository groupJpsRepo;
 
@@ -39,7 +39,7 @@ public class GroupServiceImpl implements GroupService {
 		groupsEntity.setGroupDescription(group.getGrpName());
 		groupsEntity.setGroupName(group.getGrpName());
 		groupsEntity.setPublic(Boolean.TRUE);
-		groupsEntity.setUsers(userUtility.getLoggedInUser());
+		groupsEntity.setUsers(userService.getLoggedInUser());
 		groupJpsRepo.saveAndFlush(groupsEntity);
 	}
 

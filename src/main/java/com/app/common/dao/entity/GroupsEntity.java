@@ -51,10 +51,10 @@ public class GroupsEntity implements Serializable {
     @Column(name="group_code", length=50)
     private String     groupCode    ;
 
-    @Column(name="group_description", nullable=false, length=100)
+    @Column(name="group_description", nullable=true, length=100)
     private String     groupDescription ;
     
-    @Column(name="group_pics", nullable=false, length=500)
+    @Column(name="group_pics", nullable=true, length=500)
     private String     groupPics ;
 
     @Temporal(TemporalType.DATE)
