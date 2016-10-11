@@ -14,9 +14,13 @@ import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
  
+	@Autowired
+	CustomDBAuthenticationProvider autheticationProvider;
+	
      
     @Autowired
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
+    	auth.authenticationProvider(autheticationProvider);
         auth.inMemoryAuthentication().withUser("bill").password("abc123").roles("USER");
         auth.inMemoryAuthentication().withUser("admin").password("root123").roles("ADMIN");
         auth.inMemoryAuthentication().withUser("dba").password("root123").roles("ADMIN","DBA");

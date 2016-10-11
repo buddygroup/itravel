@@ -24,7 +24,6 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private	UserRepository lUserRepo;
 	
-	
 	@Override
 	@Transactional(readOnly=false, propagation=Propagation.REQUIRED)
 	public void addMember(User user) {
@@ -39,4 +38,18 @@ public class UserServiceImpl implements UserService {
 			lUserRepo.saveAndFlush(lUserEntity);
 	}
 
+
+	@Override
+	public User findUserByEmail(String email) {
+		UsersEntity lUserEntity =lUserRepo.findByEmail(email).get(0);
+		User user = new User();
+		user.setName(lUserEntity.getUser());
+		user.setPassword(lUserEntity.getPassword());
+		user.setLocation(lUserEntity.getLocation());
+		user.setEmail(lUserEntity.getEmail());
+		return user;
+	}
+
+	
+	
 }

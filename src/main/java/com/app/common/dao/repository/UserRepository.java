@@ -12,4 +12,5 @@ import com.app.common.dao.entity.UsersEntity;
 public interface UserRepository extends JpaRepository<UsersEntity, Integer>{
 	List<UsersEntity> findById(Integer id);
 
+	List<UsersEntity> findByEmail(String email);
 }

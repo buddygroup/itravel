@@ -53,8 +53,8 @@ public class UserController {
 	
 	@RequestMapping("/user")
 	@ResponseBody
-	  public Principal user(Principal user) {
-	    return user;
+	  public User user(Principal user) {
+	    return userService.findUserByEmail(user.getName());
 	  }
 	
 	// Adding new group
