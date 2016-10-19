@@ -17,9 +17,18 @@
             
             homeService.addMember(userDetail).then(function(response){
             	$scope.message = response;
+            	alert("Congratulation "+$scope.user+ ", You are part of the family now");
             }); 	
             
         }
+        
+        $scope.getGroups = function() {
+        	homeService.getGroups().then(function successCallback(response) {
+      		$scope.groups=response.data;
+      		  }, function errorCallback(response) {
+      			 alert("Some Error occured, please contact system administer");
+      		  }); 
+      }
         
         self.logout = function() {
         	  $http.post("http://localhost:8080/ITravel/logout", {}).then(function successCallback(response) {
@@ -86,6 +95,7 @@
                     
                     homeService.addGrpInfo(grpInfo).then(function(response){
                     	$scope.message = reponse.data;
+                    	alert("You have successfully created group : " +$scope.grpName);
                     });
                   $scope.error = false;
                 } else {

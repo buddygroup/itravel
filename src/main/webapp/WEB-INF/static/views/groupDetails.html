@@ -3,6 +3,7 @@
     		$("#div1").hide();
     		 
     	});
+        
         function readURL() {
             if ($("#imageUrl").val()!='') {
             	 $('#image')
@@ -23,68 +24,29 @@
                                     <div class="panel-heading">
                                         <h3 class="panel-title">Most Awarded Groups</h3>
                                     </div>
-                                    <div class="panel-body">
+                                    <div class="panel-body" data-ng-init="getGroups()">
                                         <ul class="posts-list margin-top-10">
-                                            <li>
+                                            <li ng-repeat="group in groups">
                                                 <div class="recent-post">
                                                     <a href="">
-                                                        <img class="pull-left" src="/ITravel/static/img/about-4.jpg" alt="thumb1">
+                                                        <img class="pull-left" src="{{ group.grpPics }}" alt="thumb1">
                                                     </a>
-                                                    <a href="#" class="posts-list-title">Rockers Group</a>
+                                                    <a href="#" class="posts-list-title">{{ group.grpName }}</a>
                                                     <br>
                                                     <span class="recent-post-date">
                                                         July 30, 2013
                                                     </span>
                                                 </div>
                                                 <div class="clearfix"></div>
-                                            </li>
-                                            <li>
-                                                <div class="recent-post">
-                                                    <a href="">
-                                                        <img class="pull-left" src="/ITravel/static/img/about-6.jpg" alt="thumb2">
-                                                    </a>
-                                                    <a href="#" class="posts-list-title">Dare Davils</a>
-                                                    <br>
-                                                    <span class="recent-post-date">
-                                                        July 30, 2013
-                                                    </span>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </li>
-                                            <li>
-                                                <div class="recent-post">
-                                                    <a href="">
-                                                        <img class="pull-left" src="/ITravel/static/img/about-5.jpg" alt="thumb3">
-                                                    </a>
-                                                    <a href="#" class="posts-list-title">Travel Masti</a>
-                                                    <br>
-                                                    <span class="recent-post-date">
-                                                        July 30, 2013
-                                                    </span>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </li>
-                                            <li>
-                                                <div class="recent-post">
-                                                    <a href="">
-                                                        <img class="pull-left" src="/ITravel/static/img/about-4.jpg" alt="thumb4">
-                                                    </a>
-                                                    <a href="#" class="posts-list-title">Spontaneous Group</a>
-                                                    <br>
-                                                    <span class="recent-post-date">
-                                                        July 30, 2013
-                                                    </span>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </li>
-                                        </ul>
+                                            </li>            </ul>
                                     </div>
                                 </div>
                                 <!-- End recent Posts -->
                                 
                             </div>
                             <!-- End Side Column -->
-                            <div style="position:static;"><h2>Add Group Details</h2><br/></div>
+                            <div style="position:static;"><h2>Add Group Details</h2><br/></div>                      
+                            
                             
                             <!-- Main Column -->
                            

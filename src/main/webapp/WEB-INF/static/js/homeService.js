@@ -40,7 +40,7 @@ iTravelApp.factory('homeService', function($http) {
 		
 		//adding new group info
 		factory.addGrpInfo = function(grpInfo){
-			
+
 			return $http.put("http://localhost:8080/ITravel/createGroup", grpInfo).then(function(response){
 				alert("Response status is" +response.status)
 				return response;
@@ -49,6 +49,15 @@ iTravelApp.factory('homeService', function($http) {
 				
 			}
 			);
+		}
+		
+		factory.getGroups = function() {
+	      	  return $http.put("http://localhost:8080/ITravel/getGroups", {}).then(function successCallback(response) {
+	        		return response;
+	        		  }, function errorCallback(response) {
+	        			 alert("Some Error occured, please contact system administer");
+	        			 return response;
+	        		  }); 
 		}
 	return factory;
 });
